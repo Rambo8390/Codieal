@@ -64,18 +64,21 @@ class PostComments{
                         <p>
                             
                             <small>
-                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
+                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}"><i class="fas fa-trash-alt" style="color: red;"></i></a>
                             </small>
-                            
+                            <span class="badge bg-primary">
                             ${comment.content}
+                            </span>
+                            
                             <br>
-                            <small>
+                            <small class="badge bg-info text-dark">
                                 ${comment.user.name}
                             </small>
+                            <br>
                             <small>
                             
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                    0 Likes
+                                    0 <i class="fas fa-thumbs-up"></i>
                                 </a>
                             
                             </small>

@@ -13,10 +13,13 @@
         Codeial / Profile Page
     </h1>
 
-    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+    
 
     <% if(user.id == profile_user.id){%>
         <!-- if user matches then show the form -->
+        <!-- <%= user.id%>
+        <%= locals.user._id%> -->
+        <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
         <form action="/users/update/<%= profile_user.id%>" enctype="multipart/form-data" method="POST">
 
             <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required>

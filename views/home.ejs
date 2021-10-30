@@ -1,12 +1,20 @@
+
 <link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/chat_box.css">
+<link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
 
 <div id="home-container">
     <section id="feed-posts">
             <h4>Posts</h4>
             <% if(locals.user){ %>
             <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
-                <input type="submit" value="Post">
+                <textarea name="content" cols="50" rows="5" style="border:double 4px orange;"" placeholder="Type Here..." required></textarea>
+                <input type="submit" value="Post" class="btn btn-outline-warning">
             </form>
             <% } %>
         
@@ -30,10 +38,14 @@
                 </p>
             <% } %>
         </section>
+
+        <%- include('_chat_box') -%>
 </div>
 
 <!-- importing this script for creating the comments -->
 <script src="/js/home_post_comments.js" ></script>
+
+<!-- importing this script for creating the Posts -->
 <script src="/js/home_posts.js"></script>
 
 <!-- CHANGE :: import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
@@ -44,3 +56,12 @@
         let toggleLike = new ToggleLike(self);
     });
 </script>
+
+
+<script src="https://cdn.socket.io/4.3.2/socket.io.min.js" integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous"></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
+<% } %>

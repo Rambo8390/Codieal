@@ -45,19 +45,22 @@
                     <p>
                         
                         <small>
-                            <a class="delete-post-button"  href="/posts/destroy/${ post._id }">X</a>
+                            <a class="delete-post-button"  href="/posts/destroy/${ post._id }"><i class="fas fa-trash-alt" style="color: red;"></i></a>
                         </small>
                        
-                        ${ post.content }
+                        <span class="badge bg-primary" style="font-size: large;">
+                            ${ post.content }
+                        </span>
+                        
                         <br>
-                        <small>
+                        <small class="badge bg-info text-dark">
                         ${ post.user.name }
                         </small>
                         <br>
                         <small>
                             
                                 <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${post._id}&type=Post">
-                                    0 Likes
+                                    0 <i class="fas fa-thumbs-up"></i>
                                 </a>
                             
                         </small>
